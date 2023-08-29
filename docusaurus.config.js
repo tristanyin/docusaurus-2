@@ -30,8 +30,7 @@ const config = {
   presets: [
     [
       'classic',
-      /** @type {import('@docusaurus/preset-classic').Options} */
-      ({
+      {
         docs: {
           sidebarPath: require.resolve('./sidebars.js'),
           // Please change this to your repo.
@@ -49,7 +48,7 @@ const config = {
         theme: {
           customCss: require.resolve('./src/css/custom.css'),
         },
-      }),
+      },
     ],
   ],
 
@@ -74,6 +73,17 @@ const config = {
             href: 'https://github.com/facebook/docusaurus',
             label: 'GitHub',
             position: 'right',
+          },
+          {
+            type: 'custom',
+            position: 'right',
+            content: `
+              <div style={{padding: '1rem', backgroundColor: 'lightgray'}}>
+                <a href="https://github.com/facebook/docusaurus" target="_blank" rel="noopener noreferrer">
+                  Please star the Docusaurus repo! Current stars: ${process.env.DOCUSARAUS_STARS}
+                </a>
+              </div>
+            `,
           },
         ],
       },
