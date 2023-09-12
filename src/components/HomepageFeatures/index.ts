@@ -2,7 +2,13 @@ import React from 'react';
 import clsx from 'clsx';
 import styles from './styles.module.css';
 
-const FeatureList = [
+interface Feature {
+  title: string;
+  Svg: React.FunctionComponent<React.SVGProps<SVGSVGElement>>;
+  description: React.ReactNode;
+}
+
+const FeatureList: Feature[] = [
   {
     title: 'Easy to Use',
     Svg: require('@site/static/img/undraw_docusaurus_mountain.svg').default,
@@ -35,7 +41,11 @@ const FeatureList = [
   },
 ];
 
-function Feature({Svg, title, description}) {
+interface FeatureProps extends Feature {
+  key: number;
+}
+
+function Feature({ Svg, title, description }: FeatureProps) {
   return (
     <div className={clsx('col col--4')}>
       <div className="text--center">
